@@ -14,3 +14,4 @@ class NetworkPackage():
             print("Obj1 x: ", self.objects[0].x)
             print("Obj1 y: ", self.objects[0].y)
         print("----------------")
+        return ""
