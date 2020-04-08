@@ -29,10 +29,13 @@ class Unpack():
         self.dataOut.bikePosPx = data.laneData.pob_pixel
         self.dataOut.targetPosPx = data.laneData.lhs_pixel//4
 
+    def getFrame(self, data):
+        self.dataOut.frame = data.output_frame
 
     def translate(self, data):
         self.getBlobs(data)
         self.getPos(data)
+        self.getFrame(data)
         # speed does not need to be translated
     
     def setup(self, pickleFilename = None):
@@ -69,6 +72,7 @@ class Sensors():
         self.blobYpos = 0
         self.blobDepths = 0
         self.blobWidths = 0
+        self.frame = 0
         # these are ints 
         self.bikePosPx = 0 
         self.targetPosPx = 0
