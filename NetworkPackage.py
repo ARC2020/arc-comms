@@ -1,8 +1,10 @@
 class NetworkPackage():
+    output_frame = None
     laneData = None
     objects = []
 
-    def __init__(self, laneData, objects):
+    def __init__(self, frame, laneData, objects):
+        self.output_frame = frame
         self.laneData = laneData
         self.objects = objects
 
