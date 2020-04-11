@@ -1,5 +1,6 @@
 from pickle import load, UnpicklingError
 from numpy import asarray
+from numpy.random import randint, uniform
 
 class Unpack():
     def __init__(self, simMode):
@@ -26,6 +27,8 @@ class Unpack():
     def getPos(self, data):
         self.dataOut.bikePosM = data.laneData.pob
         self.dataOut.targetPosM = data.laneData.lhs/4
+        self.dataOut.bikePosM /= 1000000
+        self.dataOut.targetPosM /= 1000000        
         self.dataOut.bikePosPx = data.laneData.pob_pixel
         self.dataOut.targetPosPx = data.laneData.lhs_pixel//4
 
@@ -68,11 +71,11 @@ class Unpack():
 class Sensors():
     def __init__(self):
         # these are np.arrays
-        self.blobXpos = 0
-        self.blobYpos = 0
-        self.blobDepths = 0
-        self.blobWidths = 0
-        self.frame = 0
+        self.blobXpos = randint(0, size=0)
+        self.blobYpos = randint(0, size=0)
+        self.blobDepths = uniform(size=0)
+        self.blobWidths = randint(0, size=0)
+        self.frame = randint(0, size=0)
         # these are ints 
         self.bikePosPx = 0 
         self.targetPosPx = 0
